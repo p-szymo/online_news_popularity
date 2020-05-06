@@ -25,3 +25,41 @@ def neg_one_to_median(df, column):
     '''Takes in a dataframe column and reassigns to the column's median value all values that are equal to -1.
     Overwrites the input column!'''
     df[column] = np.where(df[column] == -1, df[column].median(), df[column])
+    
+def log_col(df, column):
+    '''Takes in a dataframe column and creates a new column with a log transformation.
+    Drops the input column!'''
+    new_col = 'log_' + column
+    df[new_col] = df[column].apply(lambda x: np.log(x))
+    df.drop(columns=column, inplace=True)
+    
+def find_extremes(df):
+    '''Takes in a dataframe and returns a list of columns with values farther than 4 standard deviations from the mean.'''
+    extreme_list = []
+    for column in list(df.columns):
+        if df[column].max() > (df[column].mean() + 4*df[column].std()):
+            extreme_list.append(column)
+        if df[column].min() < (df[column].mean() - 4*df[column].std()):
+            extreme_list.append(column)
+    return extreme_list
+
+def rein_extremes(df, columns):
+    '''Takes in a dataframe and a list of columns and changes any values farther than 4 standard deviations from the mean
+    to 4 standard deviations from the mean.
+    Overwrites the input column!'''
+    for column in columns:
+        mean = df[column].mean()
+        std = df[column].std()
+        conditions = [df[column] > mean + 4*std,
+                      df[column] < mean - 4*std]
+        choices = [mean + 4*std,
+                   mean - 4*std]
+        df[column] = np.select(conditions, choices, df[column])
+        
+        
+        
+        
+        
+        
+        
+        
