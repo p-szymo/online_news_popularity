@@ -1,4 +1,5 @@
 import numpy as np
+from scipy.stats import ttest_ind
 
 def less_set_to_one(df, column):
     '''Takes in a dataframe column and reassigns to 1 all values that are less than or equal to 1.
@@ -56,6 +57,17 @@ def rein_extremes(df, columns):
                    mean - 4*std]
         df[column] = np.select(conditions, choices, df[column])
         
+def two_way_tests(series_list):
+    '''Takes in a list of series and runs a two-sided t-test on every combination within the list.
+    Returns a dictionary with the indices of the tested series as the keys and the test results as the values.
+    '''
+    compare_dict = {}
+    for i in range(len(series_list)):
+        count = i+1
+        while count < len(series_list):
+            compare_dict.update({(i,count): ttest_ind(series_list[i], series_list[count])})
+            count += 1
+    return compare_dict
         
         
         
