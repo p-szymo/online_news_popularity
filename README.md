@@ -9,3 +9,5 @@ Using UCI's [Online News Popularity Data Set](http://archive.ics.uci.edu/ml/data
 * **archives** folder - Includes scratch notebooks.
 * **charts** folder - PNG files of insightful charts from the project.
 * **data** folder - Main CSV file, description of columns, and interaction pickles
+
+### [Blog post](https://medium.com/@joshua.szymanowski/predicting-the-popularity-of-an-online-news-article-5b07591146bf)
