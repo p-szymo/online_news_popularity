@@ -4,10 +4,10 @@ Using UCI's [Online News Popularity Data Set](http://archive.ics.uci.edu/ml/data
 
 ## List of files
 * **functions.py** - text file with functions for data cleaning and statistical tests.
-* **online_news_popularity_final_notebook.ipynb.ipynb** - Jupyter Notebook for data exploration and linear regression modeling.
+* **online_news_popularity_final_notebook.ipynb** - Jupyter Notebook for data exploration and linear regression modeling.
 * **presentation.pdf** - presentation for Mashable executives with my findings.
 * **archives** folder - Includes scratch notebooks.
 * **charts** folder - PNG files of insightful charts from the project.
-* **data** folder - Main CSV file, description of columns, and interaction pickles
+* **data** folder - Main CSV file, description of columns, and interaction pickles.
 
 ### [Blog post](https://medium.com/@joshua.szymanowski/predicting-the-popularity-of-an-online-news-article-5b07591146bf)
